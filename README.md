@@ -4,7 +4,7 @@ Make the current tab obvious at a glance.
 
 This mod adds a centered emoji marker, a stronger border, and glow to the active tab while slightly dimming inactive tabs.
 
-![Preview](./image.png)
+![Preview](https://raw.githubusercontent.com/constansino/zen-active-tab-emoji-focus/master/image.png)
 
 ## Features
 
