@@ -33,24 +33,23 @@ This mod adds a centered emoji marker, a stronger border, and glow to the active
 4. Ensure `toolkit.legacyUserProfileCustomizations.stylesheets=true`.
 5. Restart Zen Browser completely.
 
-## Optional: Dynamic Container Labels
+## Optional: Hardcoded Container Labels
 
-If you also want container badges like `01`, `02`, `03` to show on tabs without
-hardcoding container IDs, use the files under
-`optional/dynamic-container-labels/`.
+If you also want container badges like `01`, `02`, `03` to show on tabs, use the
+hardcoded fallback under `optional/hardcoded-container-labels/`.
 
-1. Append `optional/dynamic-container-labels/container-labels.css` to your
+1. Append `optional/hardcoded-container-labels/container-labels.css` to your
    `userChrome.css`.
-2. Copy `optional/dynamic-container-labels/autoconfig.cfg` to your Zen install
-   root (next to `zen.exe`).
-3. Copy `optional/dynamic-container-labels/defaults/pref/autoconfig.js` to
-   `defaults/pref/` inside your Zen install directory.
-4. Restart Zen Browser completely.
+2. Restart Zen Browser completely.
 
-The AutoConfig script writes each tab's live container name into
-`data-identity-name`, and the CSS reads that attribute. This keeps the badges in
-sync with `containers.json` automatically, even if Firefox / Zen skips internal
-container IDs.
+This fallback avoids AutoConfig entirely. The included file is generated for a
+profile where:
+
+- `userContextId 6-13` map to `01-08`
+- `userContextId 19-500` map to `09-490`
+
+That matches the working local setup this repo was synced from. If your profile
+uses different internal container IDs, edit the mapping block in the CSS file.
 
 ## Files for Zen Theme Store Submission
 
@@ -61,6 +60,4 @@ container IDs.
 
 ## Optional Local Files
 
-- `optional/dynamic-container-labels/container-labels.css`
-- `optional/dynamic-container-labels/autoconfig.cfg`
-- `optional/dynamic-container-labels/defaults/pref/autoconfig.js`
+- `optional/hardcoded-container-labels/container-labels.css`

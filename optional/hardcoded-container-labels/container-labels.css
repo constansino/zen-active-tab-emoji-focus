@@ -1,0 +1,574 @@
+/*
+ * Named Container Tabs for Zen Browser
+ *
+ * Hardcoded fallback mapping. This avoids AutoConfig entirely.
+ * Current profile has a historical gap at userContextId 14-18, so mappings
+ * continue from 19 -> 09 and then stay sequential through 500.
+ */
+
+/* Hide the default context line on the left side of tabs. */
+.tab-context-line {
+  display: none !important;
+}
+
+/* Preserve a strong selected-tab highlight using the container color. */
+#tabbrowser-tabs .tabbrowser-tab[usercontextid]:is([selected], [visuallyselected], [multiselected]) .tab-background {
+  border: 2px solid var(--identity-icon-color) !important;
+  opacity: 0.85 !important;
+}
+
+/* Add a compact container-name badge above tab title. */
+#tabbrowser-tabs .tabbrowser-tab[usercontextid]:not([pinned]) .tab-label-container {
+  gap: 2px !important;
+}
+
+#tabbrowser-tabs .tabbrowser-tab[usercontextid]:not([pinned]) .tab-label-container::before {
+  content: var(--named-container-label);
+  display: inline-flex;
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 1px 6px;
+  border-radius: 999px;
+  color: var(--identity-icon-color, currentColor);
+  background: color-mix(
+    in srgb,
+    var(--identity-icon-color, currentColor) 18%,
+    transparent
+  );
+  border: 1px solid
+    color-mix(
+      in srgb,
+      var(--identity-icon-color, currentColor) 38%,
+      transparent
+    );
+}
+
+#tabbrowser-tabs .tabbrowser-tab[usercontextid][pinned] > .tab-stack > .tab-content::after {
+  content: var(--named-container-label);
+  position: absolute;
+  inset-inline: 2px;
+  bottom: 2px;
+  display: block;
+  max-width: calc(100% - 4px);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: center;
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 0 3px;
+  border-radius: 999px;
+  pointer-events: none;
+  color: var(--identity-icon-color, currentColor);
+  background: color-mix(
+    in srgb,
+    var(--identity-icon-color, currentColor) 18%,
+    transparent
+  );
+  border: 1px solid color-mix(
+    in srgb,
+    var(--identity-icon-color, currentColor) 38%,
+    transparent
+  );
+}
+
+/* userContextId -> label mapping (hardcoded up to 500). */
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="6"] { --named-container-label: "01"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="7"] { --named-container-label: "02"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="8"] { --named-container-label: "03"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="9"] { --named-container-label: "04"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="10"] { --named-container-label: "05"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="11"] { --named-container-label: "06"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="12"] { --named-container-label: "07"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="13"] { --named-container-label: "08"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="19"] { --named-container-label: "09"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="20"] { --named-container-label: "10"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="21"] { --named-container-label: "11"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="22"] { --named-container-label: "12"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="23"] { --named-container-label: "13"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="24"] { --named-container-label: "14"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="25"] { --named-container-label: "15"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="26"] { --named-container-label: "16"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="27"] { --named-container-label: "17"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="28"] { --named-container-label: "18"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="29"] { --named-container-label: "19"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="30"] { --named-container-label: "20"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="31"] { --named-container-label: "21"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="32"] { --named-container-label: "22"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="33"] { --named-container-label: "23"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="34"] { --named-container-label: "24"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="35"] { --named-container-label: "25"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="36"] { --named-container-label: "26"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="37"] { --named-container-label: "27"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="38"] { --named-container-label: "28"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="39"] { --named-container-label: "29"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="40"] { --named-container-label: "30"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="41"] { --named-container-label: "31"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="42"] { --named-container-label: "32"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="43"] { --named-container-label: "33"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="44"] { --named-container-label: "34"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="45"] { --named-container-label: "35"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="46"] { --named-container-label: "36"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="47"] { --named-container-label: "37"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="48"] { --named-container-label: "38"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="49"] { --named-container-label: "39"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="50"] { --named-container-label: "40"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="51"] { --named-container-label: "41"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="52"] { --named-container-label: "42"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="53"] { --named-container-label: "43"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="54"] { --named-container-label: "44"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="55"] { --named-container-label: "45"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="56"] { --named-container-label: "46"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="57"] { --named-container-label: "47"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="58"] { --named-container-label: "48"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="59"] { --named-container-label: "49"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="60"] { --named-container-label: "50"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="61"] { --named-container-label: "51"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="62"] { --named-container-label: "52"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="63"] { --named-container-label: "53"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="64"] { --named-container-label: "54"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="65"] { --named-container-label: "55"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="66"] { --named-container-label: "56"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="67"] { --named-container-label: "57"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="68"] { --named-container-label: "58"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="69"] { --named-container-label: "59"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="70"] { --named-container-label: "60"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="71"] { --named-container-label: "61"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="72"] { --named-container-label: "62"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="73"] { --named-container-label: "63"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="74"] { --named-container-label: "64"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="75"] { --named-container-label: "65"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="76"] { --named-container-label: "66"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="77"] { --named-container-label: "67"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="78"] { --named-container-label: "68"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="79"] { --named-container-label: "69"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="80"] { --named-container-label: "70"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="81"] { --named-container-label: "71"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="82"] { --named-container-label: "72"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="83"] { --named-container-label: "73"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="84"] { --named-container-label: "74"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="85"] { --named-container-label: "75"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="86"] { --named-container-label: "76"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="87"] { --named-container-label: "77"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="88"] { --named-container-label: "78"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="89"] { --named-container-label: "79"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="90"] { --named-container-label: "80"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="91"] { --named-container-label: "81"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="92"] { --named-container-label: "82"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="93"] { --named-container-label: "83"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="94"] { --named-container-label: "84"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="95"] { --named-container-label: "85"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="96"] { --named-container-label: "86"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="97"] { --named-container-label: "87"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="98"] { --named-container-label: "88"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="99"] { --named-container-label: "89"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="100"] { --named-container-label: "90"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="101"] { --named-container-label: "91"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="102"] { --named-container-label: "92"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="103"] { --named-container-label: "93"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="104"] { --named-container-label: "94"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="105"] { --named-container-label: "95"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="106"] { --named-container-label: "96"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="107"] { --named-container-label: "97"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="108"] { --named-container-label: "98"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="109"] { --named-container-label: "99"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="110"] { --named-container-label: "100"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="111"] { --named-container-label: "101"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="112"] { --named-container-label: "102"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="113"] { --named-container-label: "103"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="114"] { --named-container-label: "104"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="115"] { --named-container-label: "105"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="116"] { --named-container-label: "106"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="117"] { --named-container-label: "107"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="118"] { --named-container-label: "108"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="119"] { --named-container-label: "109"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="120"] { --named-container-label: "110"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="121"] { --named-container-label: "111"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="122"] { --named-container-label: "112"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="123"] { --named-container-label: "113"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="124"] { --named-container-label: "114"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="125"] { --named-container-label: "115"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="126"] { --named-container-label: "116"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="127"] { --named-container-label: "117"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="128"] { --named-container-label: "118"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="129"] { --named-container-label: "119"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="130"] { --named-container-label: "120"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="131"] { --named-container-label: "121"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="132"] { --named-container-label: "122"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="133"] { --named-container-label: "123"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="134"] { --named-container-label: "124"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="135"] { --named-container-label: "125"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="136"] { --named-container-label: "126"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="137"] { --named-container-label: "127"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="138"] { --named-container-label: "128"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="139"] { --named-container-label: "129"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="140"] { --named-container-label: "130"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="141"] { --named-container-label: "131"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="142"] { --named-container-label: "132"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="143"] { --named-container-label: "133"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="144"] { --named-container-label: "134"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="145"] { --named-container-label: "135"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="146"] { --named-container-label: "136"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="147"] { --named-container-label: "137"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="148"] { --named-container-label: "138"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="149"] { --named-container-label: "139"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="150"] { --named-container-label: "140"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="151"] { --named-container-label: "141"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="152"] { --named-container-label: "142"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="153"] { --named-container-label: "143"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="154"] { --named-container-label: "144"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="155"] { --named-container-label: "145"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="156"] { --named-container-label: "146"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="157"] { --named-container-label: "147"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="158"] { --named-container-label: "148"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="159"] { --named-container-label: "149"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="160"] { --named-container-label: "150"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="161"] { --named-container-label: "151"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="162"] { --named-container-label: "152"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="163"] { --named-container-label: "153"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="164"] { --named-container-label: "154"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="165"] { --named-container-label: "155"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="166"] { --named-container-label: "156"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="167"] { --named-container-label: "157"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="168"] { --named-container-label: "158"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="169"] { --named-container-label: "159"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="170"] { --named-container-label: "160"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="171"] { --named-container-label: "161"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="172"] { --named-container-label: "162"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="173"] { --named-container-label: "163"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="174"] { --named-container-label: "164"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="175"] { --named-container-label: "165"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="176"] { --named-container-label: "166"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="177"] { --named-container-label: "167"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="178"] { --named-container-label: "168"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="179"] { --named-container-label: "169"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="180"] { --named-container-label: "170"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="181"] { --named-container-label: "171"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="182"] { --named-container-label: "172"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="183"] { --named-container-label: "173"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="184"] { --named-container-label: "174"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="185"] { --named-container-label: "175"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="186"] { --named-container-label: "176"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="187"] { --named-container-label: "177"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="188"] { --named-container-label: "178"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="189"] { --named-container-label: "179"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="190"] { --named-container-label: "180"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="191"] { --named-container-label: "181"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="192"] { --named-container-label: "182"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="193"] { --named-container-label: "183"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="194"] { --named-container-label: "184"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="195"] { --named-container-label: "185"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="196"] { --named-container-label: "186"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="197"] { --named-container-label: "187"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="198"] { --named-container-label: "188"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="199"] { --named-container-label: "189"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="200"] { --named-container-label: "190"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="201"] { --named-container-label: "191"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="202"] { --named-container-label: "192"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="203"] { --named-container-label: "193"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="204"] { --named-container-label: "194"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="205"] { --named-container-label: "195"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="206"] { --named-container-label: "196"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="207"] { --named-container-label: "197"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="208"] { --named-container-label: "198"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="209"] { --named-container-label: "199"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="210"] { --named-container-label: "200"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="211"] { --named-container-label: "201"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="212"] { --named-container-label: "202"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="213"] { --named-container-label: "203"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="214"] { --named-container-label: "204"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="215"] { --named-container-label: "205"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="216"] { --named-container-label: "206"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="217"] { --named-container-label: "207"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="218"] { --named-container-label: "208"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="219"] { --named-container-label: "209"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="220"] { --named-container-label: "210"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="221"] { --named-container-label: "211"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="222"] { --named-container-label: "212"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="223"] { --named-container-label: "213"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="224"] { --named-container-label: "214"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="225"] { --named-container-label: "215"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="226"] { --named-container-label: "216"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="227"] { --named-container-label: "217"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="228"] { --named-container-label: "218"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="229"] { --named-container-label: "219"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="230"] { --named-container-label: "220"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="231"] { --named-container-label: "221"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="232"] { --named-container-label: "222"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="233"] { --named-container-label: "223"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="234"] { --named-container-label: "224"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="235"] { --named-container-label: "225"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="236"] { --named-container-label: "226"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="237"] { --named-container-label: "227"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="238"] { --named-container-label: "228"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="239"] { --named-container-label: "229"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="240"] { --named-container-label: "230"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="241"] { --named-container-label: "231"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="242"] { --named-container-label: "232"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="243"] { --named-container-label: "233"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="244"] { --named-container-label: "234"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="245"] { --named-container-label: "235"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="246"] { --named-container-label: "236"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="247"] { --named-container-label: "237"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="248"] { --named-container-label: "238"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="249"] { --named-container-label: "239"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="250"] { --named-container-label: "240"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="251"] { --named-container-label: "241"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="252"] { --named-container-label: "242"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="253"] { --named-container-label: "243"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="254"] { --named-container-label: "244"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="255"] { --named-container-label: "245"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="256"] { --named-container-label: "246"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="257"] { --named-container-label: "247"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="258"] { --named-container-label: "248"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="259"] { --named-container-label: "249"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="260"] { --named-container-label: "250"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="261"] { --named-container-label: "251"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="262"] { --named-container-label: "252"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="263"] { --named-container-label: "253"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="264"] { --named-container-label: "254"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="265"] { --named-container-label: "255"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="266"] { --named-container-label: "256"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="267"] { --named-container-label: "257"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="268"] { --named-container-label: "258"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="269"] { --named-container-label: "259"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="270"] { --named-container-label: "260"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="271"] { --named-container-label: "261"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="272"] { --named-container-label: "262"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="273"] { --named-container-label: "263"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="274"] { --named-container-label: "264"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="275"] { --named-container-label: "265"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="276"] { --named-container-label: "266"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="277"] { --named-container-label: "267"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="278"] { --named-container-label: "268"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="279"] { --named-container-label: "269"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="280"] { --named-container-label: "270"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="281"] { --named-container-label: "271"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="282"] { --named-container-label: "272"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="283"] { --named-container-label: "273"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="284"] { --named-container-label: "274"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="285"] { --named-container-label: "275"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="286"] { --named-container-label: "276"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="287"] { --named-container-label: "277"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="288"] { --named-container-label: "278"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="289"] { --named-container-label: "279"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="290"] { --named-container-label: "280"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="291"] { --named-container-label: "281"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="292"] { --named-container-label: "282"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="293"] { --named-container-label: "283"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="294"] { --named-container-label: "284"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="295"] { --named-container-label: "285"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="296"] { --named-container-label: "286"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="297"] { --named-container-label: "287"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="298"] { --named-container-label: "288"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="299"] { --named-container-label: "289"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="300"] { --named-container-label: "290"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="301"] { --named-container-label: "291"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="302"] { --named-container-label: "292"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="303"] { --named-container-label: "293"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="304"] { --named-container-label: "294"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="305"] { --named-container-label: "295"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="306"] { --named-container-label: "296"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="307"] { --named-container-label: "297"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="308"] { --named-container-label: "298"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="309"] { --named-container-label: "299"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="310"] { --named-container-label: "300"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="311"] { --named-container-label: "301"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="312"] { --named-container-label: "302"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="313"] { --named-container-label: "303"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="314"] { --named-container-label: "304"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="315"] { --named-container-label: "305"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="316"] { --named-container-label: "306"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="317"] { --named-container-label: "307"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="318"] { --named-container-label: "308"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="319"] { --named-container-label: "309"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="320"] { --named-container-label: "310"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="321"] { --named-container-label: "311"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="322"] { --named-container-label: "312"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="323"] { --named-container-label: "313"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="324"] { --named-container-label: "314"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="325"] { --named-container-label: "315"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="326"] { --named-container-label: "316"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="327"] { --named-container-label: "317"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="328"] { --named-container-label: "318"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="329"] { --named-container-label: "319"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="330"] { --named-container-label: "320"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="331"] { --named-container-label: "321"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="332"] { --named-container-label: "322"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="333"] { --named-container-label: "323"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="334"] { --named-container-label: "324"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="335"] { --named-container-label: "325"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="336"] { --named-container-label: "326"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="337"] { --named-container-label: "327"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="338"] { --named-container-label: "328"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="339"] { --named-container-label: "329"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="340"] { --named-container-label: "330"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="341"] { --named-container-label: "331"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="342"] { --named-container-label: "332"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="343"] { --named-container-label: "333"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="344"] { --named-container-label: "334"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="345"] { --named-container-label: "335"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="346"] { --named-container-label: "336"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="347"] { --named-container-label: "337"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="348"] { --named-container-label: "338"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="349"] { --named-container-label: "339"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="350"] { --named-container-label: "340"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="351"] { --named-container-label: "341"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="352"] { --named-container-label: "342"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="353"] { --named-container-label: "343"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="354"] { --named-container-label: "344"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="355"] { --named-container-label: "345"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="356"] { --named-container-label: "346"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="357"] { --named-container-label: "347"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="358"] { --named-container-label: "348"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="359"] { --named-container-label: "349"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="360"] { --named-container-label: "350"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="361"] { --named-container-label: "351"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="362"] { --named-container-label: "352"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="363"] { --named-container-label: "353"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="364"] { --named-container-label: "354"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="365"] { --named-container-label: "355"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="366"] { --named-container-label: "356"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="367"] { --named-container-label: "357"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="368"] { --named-container-label: "358"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="369"] { --named-container-label: "359"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="370"] { --named-container-label: "360"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="371"] { --named-container-label: "361"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="372"] { --named-container-label: "362"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="373"] { --named-container-label: "363"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="374"] { --named-container-label: "364"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="375"] { --named-container-label: "365"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="376"] { --named-container-label: "366"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="377"] { --named-container-label: "367"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="378"] { --named-container-label: "368"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="379"] { --named-container-label: "369"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="380"] { --named-container-label: "370"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="381"] { --named-container-label: "371"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="382"] { --named-container-label: "372"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="383"] { --named-container-label: "373"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="384"] { --named-container-label: "374"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="385"] { --named-container-label: "375"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="386"] { --named-container-label: "376"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="387"] { --named-container-label: "377"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="388"] { --named-container-label: "378"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="389"] { --named-container-label: "379"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="390"] { --named-container-label: "380"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="391"] { --named-container-label: "381"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="392"] { --named-container-label: "382"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="393"] { --named-container-label: "383"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="394"] { --named-container-label: "384"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="395"] { --named-container-label: "385"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="396"] { --named-container-label: "386"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="397"] { --named-container-label: "387"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="398"] { --named-container-label: "388"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="399"] { --named-container-label: "389"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="400"] { --named-container-label: "390"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="401"] { --named-container-label: "391"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="402"] { --named-container-label: "392"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="403"] { --named-container-label: "393"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="404"] { --named-container-label: "394"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="405"] { --named-container-label: "395"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="406"] { --named-container-label: "396"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="407"] { --named-container-label: "397"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="408"] { --named-container-label: "398"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="409"] { --named-container-label: "399"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="410"] { --named-container-label: "400"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="411"] { --named-container-label: "401"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="412"] { --named-container-label: "402"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="413"] { --named-container-label: "403"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="414"] { --named-container-label: "404"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="415"] { --named-container-label: "405"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="416"] { --named-container-label: "406"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="417"] { --named-container-label: "407"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="418"] { --named-container-label: "408"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="419"] { --named-container-label: "409"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="420"] { --named-container-label: "410"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="421"] { --named-container-label: "411"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="422"] { --named-container-label: "412"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="423"] { --named-container-label: "413"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="424"] { --named-container-label: "414"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="425"] { --named-container-label: "415"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="426"] { --named-container-label: "416"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="427"] { --named-container-label: "417"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="428"] { --named-container-label: "418"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="429"] { --named-container-label: "419"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="430"] { --named-container-label: "420"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="431"] { --named-container-label: "421"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="432"] { --named-container-label: "422"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="433"] { --named-container-label: "423"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="434"] { --named-container-label: "424"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="435"] { --named-container-label: "425"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="436"] { --named-container-label: "426"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="437"] { --named-container-label: "427"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="438"] { --named-container-label: "428"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="439"] { --named-container-label: "429"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="440"] { --named-container-label: "430"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="441"] { --named-container-label: "431"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="442"] { --named-container-label: "432"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="443"] { --named-container-label: "433"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="444"] { --named-container-label: "434"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="445"] { --named-container-label: "435"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="446"] { --named-container-label: "436"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="447"] { --named-container-label: "437"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="448"] { --named-container-label: "438"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="449"] { --named-container-label: "439"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="450"] { --named-container-label: "440"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="451"] { --named-container-label: "441"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="452"] { --named-container-label: "442"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="453"] { --named-container-label: "443"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="454"] { --named-container-label: "444"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="455"] { --named-container-label: "445"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="456"] { --named-container-label: "446"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="457"] { --named-container-label: "447"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="458"] { --named-container-label: "448"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="459"] { --named-container-label: "449"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="460"] { --named-container-label: "450"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="461"] { --named-container-label: "451"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="462"] { --named-container-label: "452"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="463"] { --named-container-label: "453"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="464"] { --named-container-label: "454"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="465"] { --named-container-label: "455"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="466"] { --named-container-label: "456"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="467"] { --named-container-label: "457"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="468"] { --named-container-label: "458"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="469"] { --named-container-label: "459"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="470"] { --named-container-label: "460"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="471"] { --named-container-label: "461"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="472"] { --named-container-label: "462"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="473"] { --named-container-label: "463"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="474"] { --named-container-label: "464"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="475"] { --named-container-label: "465"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="476"] { --named-container-label: "466"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="477"] { --named-container-label: "467"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="478"] { --named-container-label: "468"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="479"] { --named-container-label: "469"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="480"] { --named-container-label: "470"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="481"] { --named-container-label: "471"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="482"] { --named-container-label: "472"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="483"] { --named-container-label: "473"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="484"] { --named-container-label: "474"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="485"] { --named-container-label: "475"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="486"] { --named-container-label: "476"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="487"] { --named-container-label: "477"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="488"] { --named-container-label: "478"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="489"] { --named-container-label: "479"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="490"] { --named-container-label: "480"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="491"] { --named-container-label: "481"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="492"] { --named-container-label: "482"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="493"] { --named-container-label: "483"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="494"] { --named-container-label: "484"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="495"] { --named-container-label: "485"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="496"] { --named-container-label: "486"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="497"] { --named-container-label: "487"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="498"] { --named-container-label: "488"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="499"] { --named-container-label: "489"; }
+#tabbrowser-tabs .tabbrowser-tab[usercontextid="500"] { --named-container-label: "490"; }
