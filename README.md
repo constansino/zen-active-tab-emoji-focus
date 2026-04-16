@@ -33,9 +33,34 @@ This mod adds a centered emoji marker, a stronger border, and glow to the active
 4. Ensure `toolkit.legacyUserProfileCustomizations.stylesheets=true`.
 5. Restart Zen Browser completely.
 
+## Optional: Dynamic Container Labels
+
+If you also want container badges like `01`, `02`, `03` to show on tabs without
+hardcoding container IDs, use the files under
+`optional/dynamic-container-labels/`.
+
+1. Append `optional/dynamic-container-labels/container-labels.css` to your
+   `userChrome.css`.
+2. Copy `optional/dynamic-container-labels/autoconfig.cfg` to your Zen install
+   root (next to `zen.exe`).
+3. Copy `optional/dynamic-container-labels/defaults/pref/autoconfig.js` to
+   `defaults/pref/` inside your Zen install directory.
+4. Restart Zen Browser completely.
+
+The AutoConfig script writes each tab's live container name into
+`data-identity-name`, and the CSS reads that attribute. This keeps the badges in
+sync with `containers.json` automatically, even if Firefox / Zen skips internal
+container IDs.
+
 ## Files for Zen Theme Store Submission
 
 - `chrome.css`
 - `preferences.json`
 - `README.md`
 - `image.png` (`600x400` PNG)
+
+## Optional Local Files
+
+- `optional/dynamic-container-labels/container-labels.css`
+- `optional/dynamic-container-labels/autoconfig.cfg`
+- `optional/dynamic-container-labels/defaults/pref/autoconfig.js`
